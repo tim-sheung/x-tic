@@ -4,7 +4,7 @@ const arr = [
     ["-", "-", "-"],
 ];
 
-// Six winning cases
+// 8 winning cases
 const win1 = [
     [0, 0],
     [0, 1],
@@ -35,6 +35,16 @@ const win6 = [
     [1, 1],
     [2, 0],
 ];
+const win7 = [
+    [0, 1],
+    [1, 1],
+    [2, 1],
+];
+const win8 = [
+    [1, 0],
+    [1, 1],
+    [1, 2],
+];
 
 function printGame(game) {
     console.log(game[0].join(""));
@@ -48,7 +58,22 @@ function put(game, position, isCross) {
     game[row][col] = isCross ? "X" : "O";
 }
 
-function minimax(game, isCross) {}
+function minimax(game) {
+    const emptyPositions = findEmptyPositions(game);
+    const results = [];
+    const positions = [];
+    emptyPositions.forEach((_) => {
+        // Must deepclone the array
+        const newGame = JSON.parse(JSON.stringify(game));
+        put(newGame, _, true);
+        const result = evaluate(newGame, false);
+        positions.push(_);
+        results.push(result);
+    });
+    const highestScore = Math.max(...results);
+    const index = results.indexOf(highestScore);
+    return positions[index];
+}
 
 // isCross means next turn's move
 function evaluate(game, isCross) {
@@ -98,7 +123,7 @@ function isAllCellsOccupied(game) {
 
 function getWinningSymbol(game) {
     let symbol;
-    const conditions = [win1, win2, win3, win4, win5, win6];
+    const conditions = [win1, win2, win3, win4, win5, win6, win7, win8];
     conditions.forEach((condition) => {
         const symbol1 = getSymbol(game, condition[0]);
         const symbol2 = getSymbol(game, condition[1]);
@@ -127,13 +152,6 @@ function findEmptyPositions(game) {
     return positions;
 }
 
-put(arr, [0, 0], true);
-put(arr, [0, 1], false);
-put(arr, [0, 2], true);
-put(arr, [1, 1], false);
-put(arr, [2, 1], true);
-put(arr, [2, 0], false);
+console.log(minimax(arr), evaluate(arr, true));
 
 printGame(arr);
-
-console.log(evaluate(arr, true));
