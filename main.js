@@ -105,8 +105,8 @@ function evaluate(game, isCross) {
             }
         }
     }
-    console.log("Evaluating result:", score, " Next turn:", isCross ? "X" : "O");
-    printGame(game);
+    // console.log("Evaluating result:", score, " Next turn:", isCross ? "X" : "O");
+    // printGame(game);
     return score;
 }
 
