@@ -7,7 +7,7 @@ console.log("Starting hmr WebSocket at port 8081");
 
 wss.on("connection", function connection(ws) {
     console.log("client connected");
-    const mainScript = "./upnode.js";
+    const mainScript = "./main.js";
     console.log(`Watching for file changes on ${mainScript}`);
 
     fs.watch(mainScript, (event, filename) => {
