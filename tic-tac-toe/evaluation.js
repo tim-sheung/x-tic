@@ -4,19 +4,37 @@ const board = [
     ["-", "-", "-"],
 ];
 
-function checkWinning(game, n) {
-    let result = 0;
+/**
+ * 1 for black win
+ * -1 for white win
+ * 0 for no win
+ */
+
+export function checkWinning(game, n) {
+    let result;
     // Check rows
     for (const _ of game) {
-        result = checkConsecutive(_);
+        result = checkConsecutive(_, n);
         if (result !== 0) {
             return result;
         }
     }
-    return result;
+    // Check Vertical
+    for (let i = 0; i < game.length; i++) {
+        const arr = [];
+        for (let j = 0; j < game.length; j++) {
+            arr.push(game[j][i]);
+        }
+        result = checkConsecutive(arr, n);
+        if (result !== 0) {
+            return result;
+        }
+    }
+
+    return 0;
 }
 
-function checkConsecutive(arr, n) {
+export function checkConsecutive(arr, n) {
     let black = 0;
     let white = 0;
     for (const _ of arr) {
