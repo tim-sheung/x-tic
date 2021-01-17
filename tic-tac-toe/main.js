@@ -1,10 +1,13 @@
 /**
+ * Board representation
  * 1 = black
- * 0 = white
+ * -1 = white
  */
 
-const game = [
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-];
+function main() {
+    const game = [
+        ["-", "-", "-"],
+        ["-", "-", "-"],
+        ["-", "-", "-"],
+    ];
+}

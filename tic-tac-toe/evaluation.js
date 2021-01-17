@@ -1,15 +1,9 @@
-const board = [
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-];
-
 /**
+ * @example
  * 1 for black win
  * -1 for white win
  * 0 for no win
  */
-
 export function checkWinning(game, n) {
     let result;
     // Check rows
@@ -19,7 +13,7 @@ export function checkWinning(game, n) {
             return result;
         }
     }
-    // Check Vertical
+    // Check columns
     for (let i = 0; i < game.length; i++) {
         const arr = [];
         for (let j = 0; j < game.length; j++) {
