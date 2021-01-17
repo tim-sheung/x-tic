@@ -1,12 +1,12 @@
-import { getAvaiableMoves } from "./negamax";
+import { getAvailableMoves } from "./negaMax";
 
-test("getAvaiableMoves", () => {
+test("getAvailableMoves", () => {
     let games = [
         ["-", "-", "-"],
         ["-", "-", "-"],
         ["-", "-", "-"],
     ];
-    expect(getAvaiableMoves(games)).toEqual([
+    expect(getAvailableMoves(games)).toEqual([
         [0, 0],
         [0, 1],
         [0, 2],
@@ -18,11 +18,11 @@ test("getAvaiableMoves", () => {
         [2, 2],
     ]);
     games = [
-        [1, 0, "-"],
-        ["-", 0, "-"],
+        [1, -1, "-"],
+        ["-", -1, "-"],
         ["-", "-", 1],
     ];
-    expect(getAvaiableMoves(games)).toEqual([
+    expect(getAvailableMoves(games)).toEqual([
         [0, 2],
         [1, 0],
         [1, 2],

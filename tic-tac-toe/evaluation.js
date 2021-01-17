@@ -50,7 +50,7 @@ export function checkConsecutive(arr, n) {
         if (_ === 1) {
             white = 0;
             black++;
-        } else if (_ === 0) {
+        } else if (_ === -1) {
             black = 0;
             white++;
         } else {
