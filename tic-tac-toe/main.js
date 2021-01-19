@@ -1,4 +1,4 @@
-import { negaMax } from "./negaMax.js";
+import { negaMax, count } from "./negaMax.js";
 
 /**
  * Board representation
@@ -9,11 +9,12 @@ import { negaMax } from "./negaMax.js";
 function main() {
     const game = [
         [1, 1, -1],
-        [-1, -1, 1],
-        ["[ ]", "[ ]", 1],
+        [-1, "[ ]", "[ ]"],
+        [1, "[ ]", -1],
     ];
-    const [score, bestMove] = negaMax(game, 9, -1);
+    const [score, bestMove] = negaMax(game, 7, 1);
     console.log("best move: ", bestMove, " score: ", score);
+    console.log("Total nodes searched:", count);
 }
 
 main();

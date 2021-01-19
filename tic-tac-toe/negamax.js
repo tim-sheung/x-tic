@@ -1,11 +1,13 @@
 import { checkWinning } from "./evaluation.js";
 
 const N = 3;
+export let count = 0;
 
 /**
  * @returns [score, bestMove]
  */
 export function negaMax(game, depth, color) {
+    count++;
     const currentState = checkWinning(game, N);
     const availableMoves = getAvailableMoves(game);
     if (depth === 0 || currentState !== 0 || availableMoves.length === 0) {
