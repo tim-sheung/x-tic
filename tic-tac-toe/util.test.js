@@ -1,4 +1,4 @@
-import { getAvailableMoves } from "./negaMax";
+import { getAvailableMoves } from "./util";
 
 test("getAvailableMoves", () => {
     let games = [

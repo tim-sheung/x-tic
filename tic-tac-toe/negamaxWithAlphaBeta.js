@@ -7,7 +7,7 @@ export let count = 0;
 /**
  * @returns [score, bestMove]
  */
-export function negamax(game, depth, color) {
+export function negamaxWithAlphaBeta(game, depth, alpha, beta, color) {
     count++;
     const currentState = checkWinning(game, N);
     const availableMoves = getAvailableMoves(game);
@@ -19,12 +19,18 @@ export function negamax(game, depth, color) {
     let bestMove;
     for (const _ of availableMoves) {
         move(game, _[0], _[1], color);
-        let current = -negamax(game, depth - 1, -color)[0];
+        let current = -negamaxWithAlphaBeta(game, depth - 1, -1 * beta, -1 * alpha, -1 * color)[0];
         if (current > score) {
             score = current;
             bestMove = _;
         }
+        if (score > alpha) {
+            alpha = score;
+        }
         undo(game, _[0], _[1]);
+        if (alpha >= beta) {
+            return [alpha, _];
+        }
     }
     // printGame(game, score, color);
     return [score, bestMove];
