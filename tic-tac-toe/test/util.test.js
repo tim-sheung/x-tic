@@ -1,4 +1,4 @@
-import { getAvailableMoves } from "./util";
+import { getAvailableMoves } from "../util";
 
 test("getAvailableMoves", () => {
     let games = [

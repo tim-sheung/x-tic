@@ -1,4 +1,4 @@
-import { checkConsecutive, checkWinning, getDiagonalsTLBR, getDiagonalsTRBL } from "./evaluation";
+import { checkConsecutive, checkWinning, getDiagonalsTLBR, getDiagonalsTRBL } from "../evaluation";
 
 test("checkConsecutive", () => {
     let arr = [1, 1, 1];
