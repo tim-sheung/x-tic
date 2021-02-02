@@ -8,7 +8,3 @@ socket.addEventListener("message", function (event) {
         location.reload();
     }
 });
-
-const el = document.createElement("div");
-el.innerHTML = Math.random() * 100;
-document.body.appendChild(el);
