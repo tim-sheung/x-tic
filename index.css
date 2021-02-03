@@ -1,0 +1,27 @@
+body {
+    background-color: burlywood;
+}
+
+.cell {
+    display: inline-flex;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+}
+
+.symbol {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}

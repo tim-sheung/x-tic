@@ -10,9 +10,10 @@ export let count = 0;
 export function negamax(game, depth, color, render) {
     count++;
     if (render) {
+        const copiedGame = JSON.parse(JSON.stringify(game));
         setTimeout(() => {
-            render(game);
-        }, 500);
+            render(copiedGame);
+        }, count * 1000);
     }
     const currentState = checkWinning(game, N);
     const availableMoves = getAvailableMoves(game);
@@ -23,7 +24,7 @@ export function negamax(game, depth, color, render) {
     let bestMove;
     for (const _ of availableMoves) {
         move(game, _[0], _[1], color);
-        let current = -negamax(game, depth - 1, -color)[0];
+        let current = -negamax(game, depth - 1, -color, render)[0];
         if (current > score) {
             score = current;
             bestMove = _;
